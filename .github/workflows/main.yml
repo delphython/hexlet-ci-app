@@ -1,0 +1,14 @@
+name: hello-world
+# on – определяет события, которые запускают воркфлоу
+on: push
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # сетап проекта
+      - run: make setup
+      # запуск тестов
+      - run: make test
+      # запуск линтера
+      - run: make lint 
